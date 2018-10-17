@@ -7,7 +7,7 @@
       <el-col :span="16">
         <span class="title unit">今日发电总量</span>
         <el-row :gutter="5" style="line-height: 25px;">
-          <el-col :span="12" style="text-align: right"><span class="app-yellow value">20,366</span></el-col>
+          <el-col :span="12" style="text-align: right"><span class="app-yellow value">{{ dataPower.day }}</span></el-col>
           <el-col :span="12"><span class="unit">万千瓦时</span></el-col>
         </el-row>
       </el-col>
@@ -19,7 +19,7 @@
       <el-col :span="16">
         <span class="title unit">月度发电总量</span>
         <el-row :gutter="5" style="line-height: 25px;">
-          <el-col :span="12" style="text-align: right"><span class="app-blue value">462,081</span></el-col>
+          <el-col :span="12" style="text-align: right"><span class="app-blue value">{{ dataPower.mounth }}</span></el-col>
           <el-col :span="12"><span class="unit">万千瓦时</span></el-col>
         </el-row>
       </el-col>
@@ -31,7 +31,7 @@
       <el-col :span="16">
         <span class="title unit">年度发电总量</span>
         <el-row :gutter="5" style="line-height: 25px;">
-          <el-col :span="12" style="text-align: right"><span class="app-green value">6,035,875</span></el-col>
+          <el-col :span="12" style="text-align: right"><span class="app-green value">{{ dataPower.year }}</span></el-col>
           <el-col :span="12"><span class="unit">万千瓦时</span></el-col>
         </el-row>
       </el-col>
@@ -41,6 +41,9 @@
 
 <script>
 export default {
+  props: {
+    dataPower: Object
+  }
 }
 </script>
 
@@ -50,14 +53,11 @@ export default {
   top: 40px;
   right: 0px;
 
-  // height: 300px;
   width: 300px;
 
   color: #ffffff;
 
   padding: 20px;
-
-  // background: rgba(255, 255, 255, 0.1);
 
   .el-row {
     margin-bottom: 20px;

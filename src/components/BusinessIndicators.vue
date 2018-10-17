@@ -16,7 +16,7 @@
             <span>总装机规模</span>
           </el-col>
           <el-col :span="5">
-            <span style="float: right; color: #00FF00; font-size: 20px;">351</span>
+            <span style="float: right; color: #00FF00; font-size: 20px;">{{ dataTotal.total.scale }}</span>
           </el-col>
           <el-col :span="7">
             <span style="float: left">(万千瓦时)</span>
@@ -28,7 +28,7 @@
             <span>风电场总数</span>
           </el-col>
           <el-col :span="5">
-            <span style="float: right; color: #00FF00; font-size: 20px;">14</span>
+            <span style="float: right; color: #00FF00; font-size: 20px;">{{ dataTotal.total.farm }}</span>
           </el-col>
           <el-col :span="7">
             <span style="float: left">(个)</span>
@@ -40,7 +40,7 @@
             <span>风机总数</span>
           </el-col>
           <el-col :span="5">
-            <span style="float: right; color: #00FF00; font-size: 20px;">1176</span>
+            <span style="float: right; color: #00FF00; font-size: 20px;">{{ dataTotal.total.fan }}</span>
           </el-col>
           <el-col :span="7">
             <span style="float: left">(台)</span>
@@ -55,7 +55,7 @@
             <span>正常运行</span>
           </el-col>
           <el-col :span="5">
-            <span style="float: right; color: #FFFF00; font-size: 20px;">825</span>
+            <span style="float: right; color: #FFFF00; font-size: 20px;">{{ dataTotal.state.normal }}</span>
           </el-col>
           <el-col :span="7">
             <span style="float: left">(台)</span>
@@ -67,7 +67,7 @@
             <span>切出状态</span>
           </el-col>
           <el-col :span="5">
-            <span style="float: right; color: #FFFF00; font-size: 20px;">132</span>
+            <span style="float: right; color: #FFFF00; font-size: 20px;">{{ dataTotal.state.cut }}</span>
           </el-col>
           <el-col :span="7">
             <span style="float: left">(台)</span>
@@ -79,7 +79,7 @@
             <span>维护中</span>
           </el-col>
           <el-col :span="5">
-            <span style="float: right; color: #FFFF00; font-size: 20px;">63</span>
+            <span style="float: right; color: #FFFF00; font-size: 20px;">{{ dataTotal.state.repair }}</span>
           </el-col>
           <el-col :span="7">
             <span style="float: left">(台)</span>
@@ -91,7 +91,7 @@
             <span>故障状态</span>
           </el-col>
           <el-col :span="5">
-            <span style="float: right; color: #FFFF00; font-size: 20px;">14</span>
+            <span style="float: right; color: #FFFF00; font-size: 20px;">{{ dataTotal.state.fault }}</span>
           </el-col>
           <el-col :span="7">
             <span style="float: left">(台)</span>
@@ -103,7 +103,7 @@
             <span>通信中断</span>
           </el-col>
           <el-col :span="5">
-            <span style="float: right; color: #FFFF00; font-size: 20px;">7</span>
+            <span style="float: right; color: #FFFF00; font-size: 20px;">{{ dataTotal.state.interrupt }}</span>
           </el-col>
           <el-col :span="7">
             <span style="float: left">(台)</span>
@@ -116,6 +116,9 @@
 
 <script>
 export default {
+  props: {
+    dataTotal: Object
+  },
   data: () => {
     return {
       isOpen: true,
@@ -151,9 +154,6 @@ export default {
     i {
       margin: 0 10px;
       font-size: 20px;
-    }
-    span {
-      font-family: '黑体'
     }
 
     .box-header-button {

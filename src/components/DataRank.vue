@@ -1,5 +1,5 @@
 <template>
-  <div class="data-rank" :style="{bottom: isOpen ? '0px' : '-360px'}">
+  <div class="data-rank" :style="{bottom: isOpen ? '0px' : '-240px'}">
     <div class="box-header">
       <i class="iconfont">&#xe67d;</i>
       <span>最大发电量风场排名</span>
@@ -52,7 +52,7 @@ export default {
   bottom: 0px;
   left: 0px;
   width: 400px;
-  height: 400px;
+  height: 280px;
   background-color: rgba(255, 255, 255, 0.1);
   transition: all 0.6s;
 
