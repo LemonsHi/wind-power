@@ -113,6 +113,58 @@ const mapChartConfig = {
     layoutCenter: ['50%', '46%'],
     // 如果宽高比大于 1 则宽度为 100，如果小于 1 则高度为 100，保证了不超过 100x100 的区域
     layoutSize: 900
+  }, {
+    type: 'effectScatter',
+    coordinateSystem: 'geo',
+    data: [
+      {
+        name: '河北张北坝头风电场',
+        value: [114.829064, 41.082209, 400]
+      },
+      {
+        name: '四川德昌风电场',
+        value: [102.147882, 27.411969, 400]
+      },
+      {
+        name: '关岭永宁风电场',
+        value: [105.541214,25.834837, 400]
+      },
+      {
+        name: '瓜州北大桥第一风电场',
+        value: [95.883621, 40.598737, 400]
+      },
+      // {
+      //   name: '张北元山子风电场',
+      //   value: [115.098094, 41.211017, 400]
+      // },
+      {
+        name: '云南泸西风电场',
+        value: [103.81406, 24.524296, 400]
+      }
+    ],
+    symbolSize: function (val) {
+      return val[2] / 20;
+    },
+    showEffectOn: 'render',
+    rippleEffect: {
+      brushType: 'stroke'
+    },
+    hoverAnimation: true,
+    label: {
+      normal: {
+        formatter: '{b}',
+        position: 'right',
+        show: true
+      }
+    },
+    itemStyle: {
+      normal: {
+        color: '#f4e925',
+        shadowBlur: 10,
+        shadowColor: '#333'
+      }
+    },
+    zlevel: 1
   }]
 }
 
