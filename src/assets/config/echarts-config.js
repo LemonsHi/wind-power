@@ -30,6 +30,7 @@ const lineChartConfig = {
     }
   },
   series: [{
+    name: '实时功率',
     data: [1200, 1400, 1000, 1400, 900, 2400, 2100, 1300, 900, 2300, 2100, 2200, 2100],
     type: 'line',
     symbol: 'circle',

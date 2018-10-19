@@ -37,8 +37,27 @@ const dataPower = {
   year: '6,035,875'
 }
 
+const dataInfo = {
+  total: '32000.0',
+  agc: '32000.0',
+  real: '32000.0',
+  upperLimit: '32000.0',
+  lowerLimit: '32000.0',
+  state: 1
+}
+
+const dataFanState = {
+  normal: '825',
+  standby: '132',
+  maintain: '825',
+  cutOut: '825',
+  anemometerTower: '12'
+}
+
 export default {
   dataRank: dataRank,
   dataTotal: dataTotal,
-  dataPower: dataPower
+  dataPower: dataPower,
+  dataInfo: dataInfo,
+  dataFanState: dataFanState
 }

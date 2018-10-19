@@ -1,8 +1,8 @@
 <template>
   <div class="app-title">
-    <el-row>
+    <el-row style="z-index: 999;">
       <el-col :span="8" class="title-time">
-        <i class="iconfont icon">&#xe628;</i>
+        <i class="iconfont icon" @click="control">&#xe628;</i>
         <div class="time">
           <p>{{ time }}</p>
           <p>{{ date }}</p>
@@ -41,7 +41,10 @@ export default {
       let _minute = `${parseInt(_time.getMinutes() / 10)}${_time.getMinutes() % 10}`
       let _second = `${parseInt(_time.getSeconds() / 10)}${_time.getSeconds() % 10}`
       this.time = `${_hour}:${_minute}:${_second}`
-      this.date = `${_time.getFullYear()}年${parseInt((_time.getMonth() + 1) / 10)}${(_time.getMonth() + 1) % 10}月${parseInt(_time.getDay() / 10)}${_time.getDay() % 10}日`
+      this.date = `${_time.getFullYear()}年${parseInt((_time.getMonth() + 1) / 10)}${(_time.getMonth() + 1) % 10}月${parseInt(_time.getDate() / 10)}${_time.getDate() % 10}日`
+    },
+    control () {
+      this.$emit('control-info')
     }
   }
 }
@@ -54,13 +57,19 @@ export default {
   background-color: rgba(0, 0, 0, 0.6);
 
   .title-time {
-    padding-left: 20px;
+    padding-left: 10px;
     color: #ffffff;
     .icon {
       float: left;
       font-size: 20px;
       line-height: 40px;
-      // margin-right: 20px;
+      width: 60px;
+      text-align: center;
+      transition: all 0.3s;
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.8);
+        color: #000000;
+      }
     }
     .time {
       width: 200px;
@@ -94,10 +103,15 @@ export default {
       margin: 5px 20px 5px 20px;
       width: 30px;
       height: 30px;
-      border: 1px solid #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.8);
       border-radius: 50%;
       line-height: 30px;
       text-align: center;
+      transition: all 0.3s;
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.8);
+        color: #000000;
+      }
     }
   }
 }
