@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <AppTitle @control-info="controlWindFarm" />
+    <AppTitle :first-page="isShow.firstPage" @control-page="controlPage" @control-info="controlWindFarm" />
     <div class="app-body">
       <div class="app-body-item" v-if="isShow.firstPage">
-        <div class="map-panel" ref="map-panel"></div>
+        <MapPanel />
         <BusinessIndicators
           :data-total="dataTotal" />
         <PowerTotal
@@ -24,6 +24,17 @@
           :data-fan-state="dataFanState" />
         <WindFarm />
       </div>
+      <div class="app-body-item" v-if="isShow.dataStatistics">
+        <PowerTotal
+          :data-power="dataPower" />
+        <ClimateTotal
+          :data-climate="dataClimate" />
+        <ClimateTable
+          :data-climate-table="dataClimateTable" />
+      </div>
+      <div class="app-body-item" v-if="isShow.predictionAnalysis">
+        <PredictionAnalysis :data-option="dataOption" />
+      </div>
     </div>
   </div>
 </template>
@@ -37,9 +48,12 @@ import powerLineChart from "./components/powerLineChart.vue";
 import WindFarmInfo from "./components/WindFarmInfo.vue";
 import FanState from "./components/FanState.vue";
 import WindFarm from "./components/WindFarm.vue";
+import MapPanel from "./components/MapPanel.vue";
+import ClimateTotal from "./components/ClimateTotal.vue";
+import ClimateTable from "./components/ClimateTable.vue";
+import PredictionAnalysis from "./components/PredictionAnalysis.vue";
 
 import data from "./assets/data/data.js";
-import { mapChartConfig } from './assets/config/echarts-config.js'
 
 export default {
   name: "app",
@@ -47,7 +61,9 @@ export default {
     openInfo: true,
     isShow: {
       firstPage: true,
-      info: false
+      info: false,
+      dataStatistics: false,
+      predictionAnalysis: false
     }
   }),
   components: {
@@ -58,7 +74,11 @@ export default {
     powerLineChart,
     WindFarmInfo,
     FanState,
-    WindFarm
+    WindFarm,
+    MapPanel,
+    ClimateTotal,
+    ClimateTable,
+    PredictionAnalysis
   },
   computed: {
     dataRank () {
@@ -75,21 +95,18 @@ export default {
     },
     dataFanState () {
       return data.dataFanState
+    },
+    dataClimate () {
+      return data.dataClimate
+    },
+    dataClimateTable () {
+      return data.dataClimateTable
+    },
+    dataOption () {
+      return data.dataOption
     }
   },
-  mounted () {
-    this.initChartStyle()
-  },
   methods: {
-    initChartStyle () {
-      let _element = this.$refs['map-panel']
-      let _height = _element.parentElement.clientHeight
-      let _width = _element.parentElement.clientWidth
-      _element.style.height = `${_height}px`
-      _element.style.width = `${_width}px`
-      let myChart = this.$echarts.init(_element)
-      myChart.setOption(mapChartConfig)
-    },
     controlWindFarm () {
       this.openInfo = !this.openInfo
     },

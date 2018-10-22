@@ -65,12 +65,12 @@
           </div>
         </el-col>
         <el-col :span="8">
-          <div class="btn">
+          <div class="btn" @click="jumpPage('predictionAnalysis')">
             预报分析
           </div>
         </el-col>
         <el-col :span="8">
-          <div class="btn">
+          <div class="btn" @click="jumpPage('dataStatistics')">
             数据统计
           </div>
         </el-col>
@@ -99,11 +99,7 @@ export default {
       this.$emit('control-info')
     },
     jumpPage (type) {
-      switch (type) {
-        case 'info':
-          this.$emit('control-page', type)
-          break;
-      }
+      this.$emit('control-page', type)
     }
   }
 }

@@ -1,3 +1,4 @@
+// 首页折线图配置文件
 const lineChartConfig = {
   tooltip: {
     trigger: 'axis'
@@ -44,6 +45,7 @@ const lineChartConfig = {
   }]
 }
 
+// 首页地图配置文件
 const mapChartConfig = {
   backgroundColor: {
     type: 'linear',
@@ -169,4 +171,244 @@ const mapChartConfig = {
   }]
 }
 
-export { lineChartConfig, mapChartConfig }
+const predictionLineChartConfig = {
+  title: {
+    text: '实时 - 预测折线图',
+    textStyle: {
+      color: '#ffffff',
+      fontSize: 16
+    },
+    top: 5,
+    left: 5
+  },
+  tooltip: {
+    trigger: 'axis'
+  },
+  grid: {
+    top: 60,
+    left: 50,
+    height: '68%',
+    width: '87%',
+    // containLabel: true
+  },
+  xAxis: {
+    type: 'category',
+    data: ['0:00', '2:00', '4:00', '6:00', '8:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00', '22:00', '24:00'],
+    boundaryGap: false,
+    // name: '小时(H)',
+    axisLabel: {
+      formatter: '{value} H'
+    },
+    axisLine: {
+      lineStyle: {
+        color: '#fff'
+      }
+    }
+  },
+  yAxis: {
+    type: 'value',
+    name: 'WkW.h',
+    axisLine: {
+      lineStyle: {
+        color: '#fff'
+      }
+    }
+  },
+  series: [
+    {
+      name: '实时功率',
+      data: [1200, 1400, 1000, 1400, 900, 2400, 2100, 1300, 900, 2300, 2100, 2200, 2100],
+      type: 'line',
+      symbol: 'circle',
+      symbolSize: 10,
+      itemStyle: {
+        color: '#FFFF00'
+      },
+      lineStyle: {
+        color: '#FFFF00'
+      }
+    },
+    {
+      name: '预报功率',
+      data: [1200, 1400, 1100, 1400, 100, 2000, 2100, 1100, 900, 2300, 2000, 2300, 2000],
+      type: 'line',
+      symbol: 'circle',
+      symbolSize: 10,
+      itemStyle: {
+        color: '#6BB3FA'
+      },
+      lineStyle: {
+        color: '#6BB3FA'
+      }
+    }
+  ]
+}
+
+const predictionLineBarChartConfig = {
+  title: {
+    text: '实时 - 预测分析图',
+    textStyle: {
+      color: '#ffffff',
+      fontSize: 16
+    },
+    top: 5,
+    left: 5
+  },
+  tooltip: {
+    trigger: 'axis'
+  },
+  grid: {
+    top: 60,
+    left: 50,
+    height: '68%',
+    width: '90%',
+    // containLabel: true
+  },
+  xAxis: {
+    type: 'category',
+    data: ['0:00', '2:00', '4:00', '6:00', '8:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00', '22:00', '24:00'],
+    // boundaryGap: false,
+    // name: '小时(H)',
+    axisLabel: {
+      formatter: '{value} H'
+    },
+    axisTick: {
+      // alignWithLabel: true
+    },
+    axisPointer: {
+      type: 'shadow'
+    },
+    axisLine: {
+      lineStyle: {
+        color: '#fff'
+      }
+    }
+  },
+  yAxis: {
+    type: 'value',
+    name: 'WkW.h',
+    axisLine: {
+      lineStyle: {
+        color: '#fff'
+      }
+    }
+  },
+  series: [
+    {
+      name: '实时功率',
+      data: [1200, 1400, 1000, 1400, 900, 2400, 2100, 1300, 900, 2300, 2100, 2200, 2100],
+      type: 'bar',
+      barWidth: '50%',
+      symbol: 'circle',
+      symbolSize: 10,
+      itemStyle: {
+        color: '#FFFF00'
+      },
+      lineStyle: {
+        color: '#FFFF00'
+      }
+    },
+    {
+      name: '预报功率',
+      data: [1200, 1400, 1100, 1400, 100, 2000, 2100, 1100, 900, 2300, 2000, 2300, 2000],
+      type: 'line',
+      symbol: 'circle',
+      symbolSize: 10,
+      itemStyle: {
+        color: '#6BB3FA'
+      },
+      lineStyle: {
+        color: '#6BB3FA'
+      }
+    }
+  ]
+}
+
+const predictionBarChartConfig = {
+  title: {
+    text: '实时 - 预测条形图',
+    textStyle: {
+      color: '#ffffff',
+      fontSize: 16
+    },
+    top: 5,
+    left: 5
+  },
+  tooltip: {
+    trigger: 'axis'
+  },
+  grid: {
+    top: 60,
+    left: 50,
+    height: '68%',
+    width: '95%',
+    // containLabel: true
+  },
+  xAxis: {
+    type: 'category',
+    data: ['0:00', '2:00', '4:00', '6:00', '8:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00', '22:00', '24:00'],
+    // boundaryGap: false,
+    // name: '小时(H)',
+    axisLabel: {
+      formatter: '{value} H'
+    },
+    axisTick: {
+      // alignWithLabel: true
+    },
+    axisPointer: {
+      type: 'shadow'
+    },
+    axisLine: {
+      lineStyle: {
+        color: '#fff'
+      }
+    }
+  },
+  yAxis: {
+    type: 'value',
+    name: 'WkW.h',
+    axisLine: {
+      lineStyle: {
+        color: '#fff'
+      }
+    }
+  },
+  series: [
+    {
+      name: '实时功率',
+      data: [1200, 1400, 1000, 1400, 900, 2400, 2100, 1300, 900, 2300, 2100, 2200, 2100],
+      type: 'bar',
+      barWidth: '30%',
+      symbol: 'circle',
+      symbolSize: 10,
+      itemStyle: {
+        color: '#FFFF00'
+      },
+      lineStyle: {
+        color: '#FFFF00'
+      }
+    },
+    {
+      name: '预报功率',
+      data: [1200, 1400, 1100, 1400, 100, 2000, 2100, 1100, 900, 2300, 2000, 2300, 2000],
+      type: 'bar',
+      barWidth: '30%',
+      symbol: 'circle',
+      symbolSize: 10,
+      itemStyle: {
+        color: '#6BB3FA'
+      },
+      lineStyle: {
+        color: '#6BB3FA'
+      }
+    }
+  ]
+}
+
+export {
+  lineChartConfig,
+  mapChartConfig,
+  predictionLineChartConfig,
+  predictionLineBarChartConfig,
+  predictionBarChartConfig
+}

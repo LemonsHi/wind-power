@@ -2,7 +2,8 @@
   <div class="app-title">
     <el-row style="z-index: 999;">
       <el-col :span="8" class="title-time">
-        <i class="iconfont icon" @click="control">&#xe628;</i>
+        <i class="iconfont icon" v-if="firstPage" @click="control">&#xe628;</i>
+        <i class="iconfont icon" v-if="!firstPage" @click="controlPage">&#xe6ae;</i>
         <div class="time">
           <p>{{ time }}</p>
           <p>{{ date }}</p>
@@ -23,6 +24,9 @@
 
 <script>
 export default {
+  props: {
+    firstPage: Boolean
+  },
   data: () => {
     return {
       time: '',
@@ -45,6 +49,9 @@ export default {
     },
     control () {
       this.$emit('control-info')
+    },
+    controlPage () {
+      this.$emit('control-page', 'firstPage')
     }
   }
 }

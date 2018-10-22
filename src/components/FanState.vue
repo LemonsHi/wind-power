@@ -4,7 +4,7 @@
       <i class="iconfont">&#xe62d;</i>
       <span>风机状态</span>
       <div class="box-header-button" @click="controlPanel">
-        <div class="iconfont" :style="{transform: isOpen ?'rotate(0deg)' : 'rotate(180deg)'}">&#xe60e;</div>
+        <div class="iconfont icon" :style="{transform: isOpen ?'rotate(0deg)' : 'rotate(180deg)'}">&#xe60e;</div>
       </div>
     </div>
     <div class="box-body" :style="{height: isOpen ? '255px' : '0px'}">
@@ -102,6 +102,9 @@ export default {
       border-left: 1px solid #eee;
       border-right: 1px solid rgba(0, 0, 0, 0.6);
       transition: all 0.3s;
+      .icon {
+        transition: all 0.3s;
+      }
       &:hover {
         background-color: rgba(255, 255, 255, 0.8);
         color: #000000;
