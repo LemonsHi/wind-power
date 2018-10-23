@@ -62,11 +62,6 @@
           <PredictionLineEchart />
       </el-col>
     </el-row>
-    <!-- <el-row>
-      <el-col :span="12">
-          <PredictionLineEchart />
-      </el-col>
-    </el-row> -->
     <el-row>
       <el-col :span="24">
           <PredictionBarChart />
@@ -105,6 +100,13 @@ export default {
     background-color: rgba(255, 255, 255, 0.3);
     color: #ffffff;
     text-align: center;
+    transform: scale(1, 1);
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.1, 1.1);
+      background-color: rgba(255, 255, 255, 0.5);
+    }
 
     .icon {
       font-size: 40px;
@@ -115,15 +117,12 @@ export default {
       font-size: 20px;
       height: 60px;
       line-height: 60px;
-      // border-left: 1px solid rgba(0, 0, 0, 0.5);
-      // border-bottom: 1px solid rgba(0, 0, 0, 0.5);
     }
 
     .value {
       font-size: 30px;
       height: 90px;
       line-height: 90px;
-      // border-left: 1px solid rgba(0, 0, 0, 0.5);
     }
   }
   .el-row {

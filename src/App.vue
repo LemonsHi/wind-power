@@ -25,15 +25,19 @@
         <WindFarm />
       </div>
       <div class="app-body-item" v-if="isShow.dataStatistics">
+          <DataStatistics />
+      </div>
+      <div class="app-body-item" v-if="isShow.predictionAnalysis">
+        <PredictionAnalysis
+          :data-option="dataOption" />
+      </div>
+      <div class="app-body-item" v-if="isShow.meteorologicalData">
         <PowerTotal
           :data-power="dataPower" />
         <ClimateTotal
           :data-climate="dataClimate" />
         <ClimateTable
           :data-climate-table="dataClimateTable" />
-      </div>
-      <div class="app-body-item" v-if="isShow.predictionAnalysis">
-        <PredictionAnalysis :data-option="dataOption" />
       </div>
     </div>
   </div>
@@ -52,6 +56,7 @@ import MapPanel from "./components/MapPanel.vue";
 import ClimateTotal from "./components/ClimateTotal.vue";
 import ClimateTable from "./components/ClimateTable.vue";
 import PredictionAnalysis from "./components/PredictionAnalysis.vue";
+import DataStatistics from "./components/DataStatistics.vue";
 
 import data from "./assets/data/data.js";
 
@@ -63,7 +68,8 @@ export default {
       firstPage: true,
       info: false,
       dataStatistics: false,
-      predictionAnalysis: false
+      predictionAnalysis: false,
+      meteorologicalData: false
     }
   }),
   components: {
@@ -78,7 +84,8 @@ export default {
     MapPanel,
     ClimateTotal,
     ClimateTable,
-    PredictionAnalysis
+    PredictionAnalysis,
+    DataStatistics
   },
   computed: {
     dataRank () {

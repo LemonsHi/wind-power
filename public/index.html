@@ -12,14 +12,22 @@
         box-sizing: border-box;
         user-select:none;
       }
-      html, body, p, span {
+      html, body, p, span, div {
         margin: 0px;
         padding: 0px;
-        font-family: '黑体';
+        font-family: '黑体' !important;
+      }
+
+      .el-form-item {
+        margin-bottom: 14px !important;
       }
 
       span, i, div {
         cursor: default;
+      }
+
+      .el-form-item__label {
+        color: #ffffff !important;
       }
 
       @font-face {

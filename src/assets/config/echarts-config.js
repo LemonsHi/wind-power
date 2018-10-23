@@ -1,3 +1,6 @@
+const realTimeData = [1200, 1400, 1000, 1400, 900, 2400, 2100, 1300, 900, 2300, 2100, 2200, 2100]
+const predictionData = [1200, 1400, 1100, 1400, 900, 2000, 2100, 1100, 900, 2300, 2000, 2300, 2000]
+
 // 首页折线图配置文件
 const lineChartConfig = {
   tooltip: {
@@ -32,7 +35,7 @@ const lineChartConfig = {
   },
   series: [{
     name: '实时功率',
-    data: [1200, 1400, 1000, 1400, 900, 2400, 2100, 1300, 900, 2300, 2100, 2200, 2100],
+    data: realTimeData,
     type: 'line',
     symbol: 'circle',
     symbolSize: 10,
@@ -217,7 +220,7 @@ const predictionLineChartConfig = {
   series: [
     {
       name: '实时功率',
-      data: [1200, 1400, 1000, 1400, 900, 2400, 2100, 1300, 900, 2300, 2100, 2200, 2100],
+      data: realTimeData,
       type: 'line',
       symbol: 'circle',
       symbolSize: 10,
@@ -230,7 +233,7 @@ const predictionLineChartConfig = {
     },
     {
       name: '预报功率',
-      data: [1200, 1400, 1100, 1400, 100, 2000, 2100, 1100, 900, 2300, 2000, 2300, 2000],
+      data: predictionData,
       type: 'line',
       symbol: 'circle',
       symbolSize: 10,
@@ -296,7 +299,7 @@ const predictionLineBarChartConfig = {
   series: [
     {
       name: '实时功率',
-      data: [1200, 1400, 1000, 1400, 900, 2400, 2100, 1300, 900, 2300, 2100, 2200, 2100],
+      data: realTimeData,
       type: 'bar',
       barWidth: '50%',
       symbol: 'circle',
@@ -310,7 +313,7 @@ const predictionLineBarChartConfig = {
     },
     {
       name: '预报功率',
-      data: [1200, 1400, 1100, 1400, 100, 2000, 2100, 1100, 900, 2300, 2000, 2300, 2000],
+      data: predictionData,
       type: 'line',
       symbol: 'circle',
       symbolSize: 10,
@@ -376,7 +379,7 @@ const predictionBarChartConfig = {
   series: [
     {
       name: '实时功率',
-      data: [1200, 1400, 1000, 1400, 900, 2400, 2100, 1300, 900, 2300, 2100, 2200, 2100],
+      data: realTimeData,
       type: 'bar',
       barWidth: '30%',
       symbol: 'circle',
@@ -390,7 +393,7 @@ const predictionBarChartConfig = {
     },
     {
       name: '预报功率',
-      data: [1200, 1400, 1100, 1400, 100, 2000, 2100, 1100, 900, 2300, 2000, 2300, 2000],
+      data: predictionData,
       type: 'bar',
       barWidth: '30%',
       symbol: 'circle',
@@ -405,10 +408,76 @@ const predictionBarChartConfig = {
   ]
 }
 
+const dataStatisticsConfig = {
+  title: {
+    text: '实时 - 预测分析图',
+    textStyle: {
+      fontSize: 16
+    },
+    top: 5,
+    left: 5
+  },
+  tooltip: {
+    trigger: 'axis'
+  },
+  toolbox: {
+    feature: {
+      // dataView: {show: true, readOnly: false},
+      magicType: {show: true, type: ['line', 'bar']},
+      restore: {show: true},
+      saveAsImage: {show: true}
+    },
+    top: 5,
+    right: 10
+  },
+  grid: {
+    top: 60,
+    left: 50,
+    height: '68%',
+    width: '95%',
+  },
+  xAxis: {
+    type: 'category',
+    data: ['0:00', '2:00', '4:00', '6:00', '8:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00', '22:00', '24:00'],
+    axisLabel: {
+      formatter: '{value} H'
+    },
+    axisTick: {
+      alignWithLabel: false
+    },
+    axisPointer: {
+      type: 'shadow'
+    }
+  },
+  yAxis: {
+    type: 'value',
+    name: 'WkW.h'
+  },
+  series: [
+    {
+      name: '实时功率',
+      data: realTimeData,
+      type: 'bar',
+      barWidth: '30%',
+      symbol: 'circle',
+      symbolSize: 10
+    },
+    {
+      name: '预报功率',
+      data: predictionData,
+      type: 'line',
+      barWidth: '30%',
+      symbol: 'circle',
+      symbolSize: 10
+    }
+  ]
+}
+
 export {
   lineChartConfig,
   mapChartConfig,
   predictionLineChartConfig,
   predictionLineBarChartConfig,
-  predictionBarChartConfig
+  predictionBarChartConfig,
+  dataStatisticsConfig
 }

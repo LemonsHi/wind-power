@@ -13,10 +13,12 @@
         <span class="title">基于BP神经网络的风电场风电预测系统</span>
       </el-col>
       <el-col :span="8" class="title-info">
+        <div class="info iconfont">&#xe616;</div>
         <div class="info iconfont">&#xe642;</div>
         <div class="info iconfont">&#xe626;</div>
         <div class="info iconfont">&#xe639;</div>
-        <div class="info iconfont">&#xe625;</div>
+        <div class="info iconfont" @click="controlFull" v-if="!isFull">&#xe625;</div>
+        <div class="info iconfont" @click="controlFull" v-else>&#xe618;</div>
       </el-col>
     </el-row>
   </div>
@@ -30,13 +32,21 @@ export default {
   data: () => {
     return {
       time: '',
-      date: ''
+      date: '',
+      isFull: false
     }
   },
   created () {
     setInterval(() => {
       this.getTime()
     }, 500)
+    document.addEventListener("fullscreenchange", function(event) {
+      if (document.fullscreenElement) {
+        this.isFull = true
+      } else {
+        this.isFull = false
+      }
+    });
   },
   methods: {
     getTime () {
@@ -52,6 +62,9 @@ export default {
     },
     controlPage () {
       this.$emit('control-page', 'firstPage')
+    },
+    controlFull () {
+
     }
   }
 }

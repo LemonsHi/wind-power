@@ -26,8 +26,8 @@
           <p class="table-title">相对湿度（%）</p>
         </el-col>
       </el-row>
-      <el-row style="height: 71px;" v-for="(item, index) in dataClimateTable" :key="item.key">
-        <el-col :span="4">
+      <el-row style="height: 11.3%;" v-for="(item, index) in dataClimateTable" :key="item.key">
+        <el-col :span="4" style="height: 100%; padding-top: 4%">
           <p class="table-tower">{{ item.tower }}</p>
         </el-col>
         <el-col :span="5" class="table-value first">{{ item.speed }}</el-col>
@@ -44,9 +44,6 @@ export default {
   props: {
     dataClimateTable: Array
   }
-  // data: () => ({
-  //
-  // })
 }
 </script>
 <style lang="scss" scoped>
@@ -54,10 +51,11 @@ export default {
   position: absolute;
   height: 100%;
   width: 100%;
-  padding: 0 300px;
+  padding: 0 350px 0 250px;
 
   .box-header {
-    padding: 20px 0;
+    padding: 10px 0;
+    height: 9%;
     .title {
       font-size: 20px;
       text-align: center;
@@ -72,6 +70,8 @@ export default {
   .box-body {
     color: #ffffff;
     text-align: center;
+    height: 86%;
+    padding-bottom: 10px;
     .table-icon {
       font-size: 30px;
       color: #FFFF00;
@@ -80,14 +80,13 @@ export default {
 
     }
     .table-tower {
-      font-size: 25px;
-      padding-top: 32px;
-      padding-bottom: 10px;
+      font-size: 20px;
+      // padding-top: 4%;
     }
     .table-value {
-      font-size: 25px;
-      padding-top: 32px;
-      padding-bottom: 10px;
+      font-size: 20px;
+      padding-top: 4%;
+      height: 100%;
       border-top: 1px solid #EBEBEB;
       &.first {
         border-left: 1px solid #EBEBEB;

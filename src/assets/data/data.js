@@ -118,14 +118,14 @@ const dataClimateTable = [
     temperature: '24.2',
     humidity: '30.5'
   },
-  {
-    key: 0,
-    tower: '',
-    speed: '',
-    pressure: '',
-    temperature: '',
-    humidity: ''
-  }
+  // {
+  //   key: 0,
+  //   tower: '',
+  //   speed: '',
+  //   pressure: '',
+  //   temperature: '',
+  //   humidity: ''
+  // }
 ]
 
 const dataInfo = {

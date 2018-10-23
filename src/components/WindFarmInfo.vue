@@ -2,7 +2,7 @@
   <div class="wind-farm-info" :style="{left: open ? '0px' : '-400px'}">
     <div class="box-header">
       <i class="iconfont">&#xe627;</i>
-      <span>德昌风电场信息</span>
+      <span>河北张北坝头风电场</span>
       <div class="box-header-button" @click="controlPanel">
         <div class="iconfont">&#xe610;</div>
       </div>
@@ -59,17 +59,22 @@
     </div>
     <div class="box-footer">
       <el-row>
-        <el-col :span="8">
+        <el-col :span="6">
           <div class="btn active" @click="jumpPage('info')">
             详细信息
           </div>
         </el-col>
-        <el-col :span="8">
+        <el-col :span="6">
           <div class="btn" @click="jumpPage('predictionAnalysis')">
-            预报分析
+            当日预报
           </div>
         </el-col>
-        <el-col :span="8">
+        <el-col :span="6">
+          <div class="btn" @click="jumpPage('meteorologicalData')">
+            气象数据
+          </div>
+        </el-col>
+        <el-col :span="6">
           <div class="btn" @click="jumpPage('dataStatistics')">
             数据统计
           </div>
