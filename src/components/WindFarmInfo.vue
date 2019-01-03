@@ -2,7 +2,7 @@
   <div class="wind-farm-info" :style="{left: open ? '0px' : '-400px'}">
     <div class="box-header">
       <i class="iconfont">&#xe627;</i>
-      <span>河北张北坝头风电场</span>
+      <span>四川德昌风电场</span>
       <div class="box-header-button" @click="controlPanel">
         <div class="iconfont">&#xe610;</div>
       </div>

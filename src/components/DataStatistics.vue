@@ -3,7 +3,7 @@
     <div class="box-menu">
       <el-form ref="form" :model="searchData" label-width="80px">
         <el-form-item>
-          <p class="title"><span class="iconfont">&#xe635;</span>河北张北坝头风电场</p>
+          <p class="title"><span class="iconfont">&#xe635;</span>四川德昌风电场</p>
         </el-form-item>
         <el-form-item label="气压">
           <el-input v-model="searchData.pressure" placeholder="请输入查询气压值" size="small"></el-input>

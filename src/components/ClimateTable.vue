@@ -1,7 +1,7 @@
 <template>
   <div class="climate-table">
     <div class="box-header">
-      <p class="title"><span class="iconfont">&#xe635;</span>河北张北坝头风电场（<span class="iconfont">&#xe62a;</span>3号测风塔）</p>
+      <p class="title"><span class="iconfont">&#xe635;</span>四川德昌风电场（<span class="iconfont">&#xe62a;</span>3号测风塔）</p>
     </div>
     <div class="box-body">
       <el-row style="margin-bottom: 10px">

@@ -3,26 +3,26 @@ const dataRank = [
     key: 1,
     name: '四川德昌风电场',
     value: '7,638'
-  },
-  {
-    key: 2,
-    name: '河北张北坝头风电场',
-    value: '7,638'
-  },
-  {
-    key: 3,
-    name: '云南泸西风电场',
-    value: '7,638'
-  },
-  {
-    key: 4,
-    name: '关岭永宁风电场',
-    value: '7,638'
-  },
-  {
-    key: 5,
-    name: '瓜州北大桥第一风电场',
-    value: '7,638'
+  // },
+  // {
+  //   key: 2,
+  //   name: '河北张北坝头风电场',
+  //   value: '7,638'
+  // },
+  // {
+  //   key: 3,
+  //   name: '云南泸西风电场',
+  //   value: '7,638'
+  // },
+  // {
+  //   key: 4,
+  //   name: '关岭永宁风电场',
+  //   value: '7,638'
+  // },
+  // {
+  //   key: 5,
+  //   name: '瓜州北大桥第一风电场',
+  //   value: '7,638'
   }
 ]
 
@@ -130,10 +130,10 @@ const dataClimateTable = [
 
 const dataInfo = {
   total: '32000.0',
-  agc: '32000.0',
-  real: '32000.0',
-  upperLimit: '32000.0',
-  lowerLimit: '32000.0',
+  agc: '19000.0',
+  real: '62000.0',
+  upperLimit: '291000.0',
+  lowerLimit: '16000.0',
   state: 1
 }
 

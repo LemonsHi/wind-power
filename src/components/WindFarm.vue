@@ -2,7 +2,7 @@
   <div class="wind-farm">
     <div class="farm-info">
       <div class="farm-data">
-        <p class="title"><span class="iconfont">&#xe635;</span>河北张北坝头风电场</p>
+        <p class="title"><span class="iconfont">&#xe635;</span>四川德昌风电场</p>
         <div class="iconfont wind-farm-icon">&#xe629;</div>
       </div>
     </div>
