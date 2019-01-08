@@ -148,23 +148,23 @@ const dataFanState = {
 const dataOption = [
   {
     key: 0,
-    title: '准确率',
-    value: '98.2%'
+    title: '平局误差',
+    value: '3.0%'
   },
   {
     key: 1,
     title: '合格率',
-    value: '98.2%'
+    value: '97.0%'
   },
   {
     key: 2,
-    title: '上报率',
-    value: '98.2%'
+    title: 'MAE',
+    value: '0.18'
   },
   {
     key: 3,
-    title: '均方根误差',
-    value: '0.05'
+    title: 'RMSE',
+    value: '0.10'
   }
 ]
 

@@ -4,7 +4,8 @@
   </div>
 </template>
 <script>
-import { predictionBarChartConfig } from '../assets/config/echarts-config.js'
+// import { predictionBarChartConfig } from '../assets/config/echarts-config.js'
+import { errorChart } from '../assets/config/echarts-config.js'
 
 export default {
   name: "prediction-bar-echart",
@@ -19,7 +20,8 @@ export default {
       _element.style.height = `${_height}px`
       _element.style.width = `${_width}px`
       let myChart = this.$echarts.init(_element)
-      myChart.setOption(predictionBarChartConfig)
+      // myChart.setOption(predictionBarChartConfig)
+      myChart.setOption(errorChart)
     }
   }
 }

@@ -1,5 +1,16 @@
 const realTimeData = [1200, 1400, 1000, 1400, 900, 2400, 2100, 1300, 900, 2300, 2100, 2200, 2100]
-const predictionData = [1200, 1400, 1100, 1400, 900, 2000, 2100, 1100, 900, 2300, 2000, 2300, 2000]
+const predictionData = [1000, 1450, 1050, 1300, 950, 2380, 2000, 1100, 1000, 2000, 2200, 2300, 2000]
+const errorData = []
+
+for (var i = 0; i < 13; i++) {
+  var val = realTimeData[i]
+  var pre = predictionData[i]
+  errorData.push([
+    i,
+    val + pre / 2,
+    val - pre / 2
+  ]);
+}
 
 // 首页折线图配置文件
 const lineChartConfig = {
@@ -473,11 +484,114 @@ const dataStatisticsConfig = {
   ]
 }
 
+const errorChart = {
+  tooltip: {
+    trigger: 'axis'
+  },
+  title: {
+    text: '实时 - 预测条形图',
+    textStyle: {
+      color: '#ffffff',
+      fontSize: 16
+    },
+    top: 5,
+    left: 5
+  },
+  grid: {
+    top: 60,
+    left: 50,
+    height: '68%',
+    width: '95%',
+    // containLabel: true
+  },
+  xAxis: {
+    type: 'category',
+    data: ['0:00', '2:00', '4:00', '6:00', '8:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00', '22:00', '24:00'],
+    boundaryGap: true,
+    name: '小时(H)',
+    axisLine: {
+      lineStyle: {
+        color: '#fff'
+      }
+    }
+  },
+  yAxis: {
+    type: 'value',
+    name: 'WkW.h',
+    axisLine: {
+      lineStyle: {
+        color: '#fff'
+      }
+    }
+  },
+  series: [{
+    type: 'bar',
+    name: 'bar',
+    data: realTimeData,
+    itemStyle: {
+      normal: {
+        color: '#FFFF00'
+      }
+    }
+  }, {
+    type: 'custom',
+    name: 'error',
+    itemStyle: {
+      normal: {
+        borderWidth: 1.5
+      }
+    },
+    renderItem: (params, api) => {
+      var xValue = api.value(0);
+      var highPoint = api.coord([xValue, api.value(1)]);
+      var lowPoint = api.coord([xValue, api.value(2)]);
+      var halfWidth = api.size([1, 0])[0] * 0.2;
+      var style = api.style({
+        stroke: '#6BB3FA',
+        fill: null
+      });
+
+      return {
+        type: 'group',
+        children: [{
+          type: 'line',
+          shape: {
+            x1: highPoint[0] - halfWidth, y1: highPoint[1],
+            x2: highPoint[0] + halfWidth, y2: highPoint[1]
+          },
+          style: style
+        }, {
+          type: 'line',
+          shape: {
+            x1: highPoint[0], y1: highPoint[1],
+            x2: lowPoint[0], y2: lowPoint[1]
+          },
+          style: style
+        }, {
+          type: 'line',
+          shape: {
+            x1: lowPoint[0] - halfWidth, y1: lowPoint[1],
+            x2: lowPoint[0] + halfWidth, y2: lowPoint[1]
+          },
+          style: style
+        }]
+      };
+    },
+    encode: {
+      x: 0,
+      y: [1,2]
+    },
+    data: errorData,
+    z: 100
+  }]
+}
+
 export {
   lineChartConfig,
   mapChartConfig,
   predictionLineChartConfig,
   predictionLineBarChartConfig,
   predictionBarChartConfig,
-  dataStatisticsConfig
+  dataStatisticsConfig,
+  errorChart
 }
